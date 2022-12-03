@@ -24,6 +24,6 @@ typedef struct Graph{
 
 void initNode (int data);
 void initGraph (int V);
-void readGraph (char *text);
+void readGraph (char c);
 
 #endif

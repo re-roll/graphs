@@ -34,6 +34,6 @@ void initGraph (int V) {
         graph->array[i].firstElement = NULL;
 }
 
-void readGraph (char *text) {
-    
+void readGraph (char c) {
+    printf("%c", c);
 }
