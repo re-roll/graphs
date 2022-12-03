@@ -6,18 +6,18 @@
  * Vytvořili: Oleksii Fedorchenko, Dmitrii Ivanuhskin, Zlata Valakhanovich prosinec 2022
 */
 
-typedef struct {
+typedef struct listElement {
     int data;
-    struct ListElement *nextElement;
-} ListElement;
+    struct listElement *nextElement;
+} ListElementT;
 
-typedef struct {
-	ListElement *firstElement;
-} List;
+typedef struct list {
+	ListElementT *firstElement;
+} ListT;
 
-typedef struct {
+typedef struct graph{
     int size;
-    struct List *array;
-} Graph;
+    struct list *array;
+} GraphT;
 
 #endif
