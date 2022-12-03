@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#define BUFF_MAX 50
+
 int main(int argc, char *argv[]) {
     FILE *f;
     char c;
@@ -18,8 +20,16 @@ int main(int argc, char *argv[]) {
         f = fopen(argv[i], "r");
         while ((c = fgetc(f)) != EOF)
         {
-            if (c != '-') 
-                readGraph(c);
+            char buff[BUFF_MAX];
+            int i = 0;
+            if (c != '-')
+            {
+                buff[i] = c;
+                i++;
+
+                buff[i] = 0;
+                readNode(buff);
+            }
         }
         
         if (f == NULL)

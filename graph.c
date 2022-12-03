@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 void initNode(int data) {
     ListElementPtr newNode= (ListElementPtr)malloc(sizeof(struct ListElement));
@@ -34,6 +35,6 @@ void initGraph (int V) {
         graph->array[i].firstElement = NULL;
 }
 
-void readGraph (char c) {
-    printf("%c", c);
+void readNode (char *c) {
+    printf("%s", c);  
 }
