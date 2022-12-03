@@ -3,19 +3,19 @@
 
 /* Předmět: Algoritmy (IAL) - FIT VUT v Brně
  * Hlavičkový soubor pro graph.c
- * Vytvořili: Oleksii Fedorchenko, Dmitrii Ivanuhskin, Zlata Valakhanovich prosinec 2022
+ * Vytvořili: Oleksii Fedorchenko, Dmitrii Ivanuhskin, Zlata Valakhanovich, prosinec 2022
 */
 
-typedef struct listElement {
+typedef struct ListElement {
     int data;
-    struct listElement *nextElement;
+    struct ListElement *nextElement;
 } ListElementT;
 
-typedef struct list {
+typedef struct List{
 	ListElementT *firstElement;
 } ListT;
 
-typedef struct graph{
+typedef struct Graph{
     int size;
     struct list *array;
 } GraphT;
