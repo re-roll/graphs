@@ -8,12 +8,32 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-void initGraph() {
+void initNode(int data) {
+    ListElementPtr newNode= (ListElementPtr)malloc(sizeof(struct ListElement));
 
+    if (newNode == NULL)
+        exit(1);
+    
+    newNode->data = data;
+    newNode->nextElement = NULL;
 }
 
-bool graphIsReady(int graph) {
-    if (graph == 0)
-        return 1;
-    return 0;
+void initGraph (int V) {
+    GraphT *graph = (GraphT*)malloc(sizeof(struct Graph));
+
+    if (graph == NULL)
+        exit(1);
+    
+    graph->V = V;
+    graph->array = (ListT*)malloc(V * sizeof(struct List));
+
+    if (graph->array == NULL)
+        exit(1);
+    
+    for (int i = 0; i < V; i++)
+        graph->array[i].firstElement = NULL;
+}
+
+void readGraph (char *text) {
+    
 }

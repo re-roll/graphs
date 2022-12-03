@@ -29,14 +29,10 @@ int main(int argc, char *argv[]) {
         }
 
         //Ряд функций из граф.ц
-        int graph = 0;
 
         fclose(f);
-
-        if (graphIsReady(graph))
-        {
-            i++;
-        }      
+        
+        i++;  
     }
     
     return 0;
