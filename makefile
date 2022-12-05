@@ -6,5 +6,5 @@ READ=read
 
 all: $(PROJECT)
 
-$(PROJECT): $(PROJECT).c $(FUNCTIONS).c 
+$(PROJECT): $(PROJECT).c $(FUNCTIONS).c $(READ).c 
 	$(CC) $(CFLAGS) -o $(PROJECT) $(PROJECT).c $(FUNCTIONS).c $(READ).c 

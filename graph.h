@@ -22,7 +22,7 @@ typedef struct Graph {
     TEdge **array;
 } TGraph;
 
-int readFile(int argc, char *argv[]);
+void readFile(int argc, char *argv[]);
 
 void initGraph (TGraph *graph, int V);
 void insertConn (TGraph *graph, int v, int e);

@@ -1,13 +1,15 @@
 #include "graph.h"
 
-int readFile(int argc, char *argv[]) {
+int handleErrs (int code, char *string) {
+    fprintf(stderr, string);
+    return code;
+}
+
+void readFile (int argc, char *argv[]) {
     FILE *f;
 
     if (argc < 2)
-    {
-        fprintf(stderr, "Enter at least one text file\n");
-        return 1;
-    }
+        handleErrs(1, "Enter at least one text file\n");
 
     int i = 1;
     while (i < argc)
@@ -25,10 +27,7 @@ int readFile(int argc, char *argv[]) {
         TGraph graph;
 
         if (f == NULL)
-        {
-            fprintf(stderr, "There is no such file\n");
-            return 2;
-        }
+            handleErrs(2, "There is no such file\n");
 
         while (fscanf(f, "%s", &string[0]) == 1)
         {
@@ -50,5 +49,4 @@ int readFile(int argc, char *argv[]) {
         fclose(f);
         i++;  
     }
-    return 0;
 }
