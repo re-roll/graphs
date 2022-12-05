@@ -38,3 +38,11 @@ void initGraph (int V) {
 void readNode (char *c) {
     printf("%s", c);  
 }
+
+// void readGraph (char *c) {
+     
+// }
+
+// void readList (char *c) {
+     
+// }

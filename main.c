@@ -3,11 +3,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define BUFF_MAX 50
+#define MAX 50
 
 int main(int argc, char *argv[]) {
     FILE *f;
-    char c;
 
     if (argc < 2)
     {
@@ -18,19 +17,9 @@ int main(int argc, char *argv[]) {
     while (i < argc)
     {
         f = fopen(argv[i], "r");
-        while ((c = fgetc(f)) != EOF)
-        {
-            char buff[BUFF_MAX];
-            int i = 0;
-            if (c != '-')
-            {
-                buff[i] = c;
-                i++;
-
-                buff[i] = 0;
-                readNode(buff);
-            }
-        }
+        char string[MAX];
+        while (fscanf(f, "%s", &string[0]) == 1)
+            printf("read: %s\n", string);   
         
         if (f == NULL)
         {
@@ -39,7 +28,7 @@ int main(int argc, char *argv[]) {
         }
 
         fclose(f);
-        
+        printf("\n");
         i++;  
     }
     
