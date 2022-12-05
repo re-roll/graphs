@@ -1,7 +1,8 @@
-/*graph.c
-* Téma: Hamiltonova cesta a cyklus v grafu 
-* Implementace: Oleksii Fedorchenko, Dmitrii Ivanuhskin, Zlata Valakhanovich prosinec 2022
-*/
+/*
+ * graph.c
+ * Téma: Hamiltonova cesta a cyklus v grafu 
+ * Implementace: Oleksii Fedorchenko, Dmitrii Ivanuhskin, Zlata Valakhanovich prosinec 2022
+ */
 #include "graph.h"
 
 void initGraph (TGraph *graph, int V) {

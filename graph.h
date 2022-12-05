@@ -1,7 +1,8 @@
-/* Předmět: Algoritmy (IAL) - FIT VUT v Brně
+/*
+ * Předmět: Algoritmy (IAL) - FIT VUT v Brně
  * Hlavičkový soubor pro graph.c
  * Vytvořili: Oleksii Fedorchenko, Dmitrii Ivanuhskin, Zlata Valakhanovich, prosinec 2022
-*/
+ */
 
 #ifndef GRAPH_H
 #define GRAPH_H
@@ -11,7 +12,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define STR_MAX 100
+#define STR_MAX 50
 
 typedef struct Edge {
     bool isEdge;
@@ -22,7 +23,8 @@ typedef struct Graph {
     TEdge **array;
 } TGraph;
 
-void readFile(int argc, char *argv[]);
+void handleErrs (int code, char *string);
+void readFile (int argc, char *argv[]);
 
 void initGraph (TGraph *graph, int V);
 void insertConn (TGraph *graph, int v, int e);

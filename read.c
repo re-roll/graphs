@@ -1,8 +1,8 @@
 #include "graph.h"
 
-int handleErrs (int code, char *string) {
+void handleErrs (int code, char *string) {
     fprintf(stderr, string);
-    return code;
+    exit(code);
 }
 
 void readFile (int argc, char *argv[]) {
@@ -14,21 +14,21 @@ void readFile (int argc, char *argv[]) {
     int i = 1;
     while (i < argc)
     {
-        f = fopen(argv[i], "r");
-
+        int V = 0;
         char string[STR_MAX];
-        int V = 0; 
 
         int f_i = 0;
         int s_i = 0;
 
         int cnt = 0;
         
+        f = fopen(argv[i], "r");
+        
         TGraph graph;
 
         if (f == NULL)
             handleErrs(2, "There is no such file\n");
-
+        
         while (fscanf(f, "%s", &string[0]) == 1)
         {
             f_i = cnt;
@@ -47,6 +47,7 @@ void readFile (int argc, char *argv[]) {
             cnt++;
         }
         fclose(f);
+        printf("\n");
         i++;  
     }
 }
