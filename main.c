@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define MAX 50
+#define STR_MAX 100
 
 int main(int argc, char *argv[]) {
     FILE *f;
@@ -17,17 +17,23 @@ int main(int argc, char *argv[]) {
     while (i < argc)
     {
         f = fopen(argv[i], "r");
-        char string[MAX];
+        char string[STR_MAX];
+        int src;
+
         while (fscanf(f, "%s", &string[0]) == 1)
-            printf("read: %s\n", string);   
-        
+        {
+            printf("read: %s\n", string);
+            src = string[0] - 48;
+            //sscanf(string, "%d-", &dest);
+            printf("source: %d\n", src);
+        }       
         if (f == NULL)
         {
             fprintf(stderr, "There is no such file\n");
             return 2;
         }
-
         fclose(f);
+
         printf("\n");
         i++;  
     }

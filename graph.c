@@ -35,9 +35,9 @@ void initGraph (int V) {
         graph->array[i].firstElement = NULL;
 }
 
-void readNode (char *c) {
-    printf("%s", c);  
-}
+// void readNode (char *c) {
+//     printf("%s", c);  
+// }
 
 // void readGraph (char *c) {
      
