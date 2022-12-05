@@ -28,5 +28,6 @@ void readFile (int argc, char *argv[]);
 
 void initGraph (TGraph *graph, int V);
 void insertConn (TGraph *graph, int v, int e);
+void printGraph (TGraph *graph, int V, int cnt);
 
 #endif

@@ -21,12 +21,26 @@ void initGraph (TGraph *graph, int V) {
         for (int j = 0; j < V; j++)
         {
             graph->array[i][j].isEdge = 0;
-        }
-        
+        }   
     }
 }
 
 void insertConn (TGraph *graph, int v, int e) {
     graph->array[v][e].isEdge = 1;
-    printf("%d-%d\n", v, e);
+}
+
+void printGraph (TGraph *graph, int V, int cnt) {
+    printf("[graph %d]\n", cnt);
+    for (int i = 0; i < V; i++)
+    {
+        for (int j = 0; j < V; j++)
+        {
+            if (j < V-1)
+                printf("%d-", graph->array[i][j].isEdge);
+            else if (j == V-1)
+                printf("%d", graph->array[i][j].isEdge);
+        }
+        printf("\n");
+    }
+    printf("\n");
 }

@@ -14,7 +14,7 @@ void readFile (int argc, char *argv[]) {
     int i = 1;
     while (i < argc)
     {
-        int V = 0;
+        int V = 4;
         char string[STR_MAX];
 
         int f_i = 0;
@@ -25,6 +25,7 @@ void readFile (int argc, char *argv[]) {
         f = fopen(argv[i], "r");
         
         TGraph graph;
+        initGraph(&graph, V);
 
         if (f == NULL)
             handleErrs(2, "There is no such file\n");
@@ -34,7 +35,6 @@ void readFile (int argc, char *argv[]) {
             f_i = cnt;
             int len = strlen(string);
             V = len/2+1;
-            initGraph(&graph, V);
 
             for (int e_cnt = 0; e_cnt < len; e_cnt++)
             {
@@ -46,8 +46,8 @@ void readFile (int argc, char *argv[]) {
             }
             cnt++;
         }
+        printGraph(&graph, V, i);
         fclose(f);
-        printf("\n");
         i++;  
     }
 }
