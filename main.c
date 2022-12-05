@@ -1,6 +1,6 @@
 #include "graph.h"
 
-int main(int argc, char *argv[]) {
+int readFile(int argc, char *argv[]) {
     FILE *f;
 
     if (argc < 2)
@@ -51,6 +51,11 @@ int main(int argc, char *argv[]) {
         fclose(f);
         i++;  
     }
-    
+
+    return 0;
+}
+
+int main(int argc, char *argv[]) {
+    readFile(argc, argv);
     return 0;
 }
