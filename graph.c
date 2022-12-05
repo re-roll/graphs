@@ -6,43 +6,59 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <string.h>
 
-void initNode(int data) {
-    ListElementPtr newNode= (ListElementPtr)malloc(sizeof(struct ListElement));
+void initGraph (TGraph *graph, int V) {
+    graph->V = 0;
 
-    if (newNode == NULL)
-        exit(1);
-    
-    newNode->data = data;
-    newNode->nextElement = NULL;
+    for (int i = 0; i < V; i++)
+    {
+        graph->array[i].firstIndex = 0;
+        graph->array[i].secondIndex = 0;
+    }
 }
 
-void initGraph (int V) {
-    GraphT *graph = (GraphT*)malloc(sizeof(struct Graph));
+void insertConn (TGraph *graph, int v, int e, int V) {
+    graph = (TGraph*)malloc(sizeof(struct Graph));
 
     if (graph == NULL)
         exit(1);
-    
-    graph->V = V;
-    graph->array = (ListT*)malloc(V * sizeof(struct List));
+
+    graph->array = (TEdge*)malloc(V * sizeof(struct Edge));
 
     if (graph->array == NULL)
         exit(1);
     
-    for (int i = 0; i < V; i++)
-        graph->array[i].firstElement = NULL;
+    initGraph(graph, V);
+
+    graph->V = V;
+    graph->array->firstIndex = v;
+    graph->array->secondIndex = e;
+
+    printGraph(graph, V);
 }
 
-// void readNode (char *c) {
-//     printf("%s", c);  
-// }
+void printGraph (TGraph *graph, int V) {
+    char matrix[V][V];
+    for (int i = 0; i < V; i++)
+    {
+        for (int j = 0; j < V; j++)
+        {
+            if ((i == graph->array->firstIndex) && (j == graph->array->secondIndex))
+                matrix[i][j] = 1;
+            else
+                matrix[i][j] = 0;
+        }
+    }
 
-// void readGraph (char *c) {
-     
-// }
+    matrix[graph->array->firstIndex][graph->array->secondIndex] = 1;
 
-// void readList (char *c) {
-     
-// }
+    for (int i = 0; i < V; i++)
+    {
+        for (int j = 0; j < V; j++)
+        {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
