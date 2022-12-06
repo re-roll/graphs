@@ -51,9 +51,9 @@ void printGraph (TGraph *graph, int V, int cnt) {
 }
 
 bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
-    if (curr_node == V)
+    if (curr_node + 1 == V) 
     {
-        if (graph->array[path->array[curr_node - 1].data][path->array[0].data].data == 1)
+        if (graph->array[path->array[curr_node].data][path->array[0].data].data == 1)
             return true;
         else
             return false;
@@ -61,18 +61,18 @@ bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
 
     for (int i = 1; i < V; i++)
     {
-        if ((graph->array[path->array[curr_node - 1].data][i].data) == 1)
+        if ((graph->array[path->array[curr_node].data][i].data) == 1)
         {
-            for (int j = 0; j < curr_node; j++)
+            for (int j = 0; j < curr_node+1; j++)
                 if (path->array[j].data == i)
                     return false;
 
-            path->array[curr_node].data = i;
+            path->array[curr_node + 1].data = i;
 
             if (algo (graph, path, curr_node+1, V))
                 return true;
             
-            path->array[curr_node].data = 0;
+            path->array[curr_node + 1].data = 0;
         }
     }
     
@@ -83,7 +83,7 @@ bool cycle (TGraph *graph, int V) {
     TPath path;
     initPath(&path, V);
 
-    int curr_node = 1;
+    int curr_node = 0;
 
     if (algo(graph, &path, curr_node, V))
     {

@@ -1,15 +1,24 @@
 [graph 1]
-1-1-1-1
-1-0-0-1
-1-1-1-1
-0-0-0-1
-Result: It is not a Hamilton graph
+0-1-0-1-0
+1-0-1-1-1
+0-1-0-0-1
+1-1-0-0-1
+0-1-1-1-0
+Result: It is a Hamilton graph
+Hamilton cycle is 0-3-4-2-1-0
 
 [graph 2]
-0-1-1-1
+0-1-0-1
 1-0-0-1
-1-0-0-1
+1-0-0-0
 1-1-1-0
-Hamilton cycle is 0-1-2-3
+Result: It is not a Hamilton graph
+
+[graph 3]
+0-1-0-1
+1-0-1-0
+0-1-0-1
+1-0-1-0
 Result: It is a Hamilton graph
+Hamilton cycle is 0-3-2-1-0
 
