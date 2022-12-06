@@ -8,12 +8,12 @@ FILES=graphs/graph.txt graphs/graph_new.txt
 all: $(PROJECT)
 
 run: $(PROJECT)
-	@./$(PROJECT) $(FILES) > current-test.out
+	@./$(PROJECT) $(FILES) > current-test.output
 	@echo "\nTest output differences:"
-	@diff -su current-test.out test.out
+	@diff -c $(PROJECT).output current-test.output
 
 $(PROJECT): $(PROJECT).c $(FUNCTIONS).c $(READ).c 
 	$(CC) $(CFLAGS) -o $(PROJECT) $(PROJECT).c $(FUNCTIONS).c $(READ).c
 
 clean:
-	rm -f current-test.out main
+	rm -f current-test.output main
