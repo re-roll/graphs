@@ -47,6 +47,7 @@ void readFile (int argc, char *argv[]) {
             cnt++;
         }
         printGraph(&graph, V, i);
+        isHamiltonian(&graph);
         fclose(f);
         i++;  
     }
