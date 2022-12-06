@@ -10,10 +10,10 @@ all: $(PROJECT)
 run: $(PROJECT)
 	@./$(PROJECT) $(FILES) > current-test.output
 	@echo "\nTest output differences:"
-	@diff -c $(PROJECT).output current-test.output
+	@diff -w $(PROJECT).output current-test.output
 
 $(PROJECT): $(PROJECT).c $(FUNCTIONS).c $(READ).c 
 	$(CC) $(CFLAGS) -o $(PROJECT) $(PROJECT).c $(FUNCTIONS).c $(READ).c
 
 clean:
-	rm -f current-test.output main
+	@rm -f current-test.output main
