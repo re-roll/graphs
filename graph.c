@@ -51,26 +51,25 @@ void printGraph (TGraph *graph, int V, int cnt) {
 }
 
 bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
-    printf("HERE");
     if (curr_node == V)
     {
-        if (graph->array[path->array[curr_node].data][path->array[0].data].data == 1)
+        if (graph->array[path->array[curr_node - 1].data][path->array[0].data].data == 1)
             return true;
         else
             return false;
     }
 
-    for (int i = 0; i < V; i++)
+    for (int i = 1; i < V; i++)
     {
-        if (graph->array[path->array[curr_node].data][i].data)
+        if ((graph->array[path->array[curr_node - 1].data][i].data) == 1)
         {
             for (int j = 0; j < curr_node; j++)
-                if (!(path->array[j].data = i))
+                if (path->array[j].data == i)
                     return false;
-            
+
             path->array[curr_node].data = i;
 
-            // if (algo (graph, path, curr_node, V))
+            if (algo (graph, path, curr_node+1, V))
                 return true;
             
             path->array[curr_node].data = 0;
@@ -84,7 +83,7 @@ bool cycle (TGraph *graph, int V) {
     TPath path;
     initPath(&path, V);
 
-    int curr_node = 0;
+    int curr_node = 1;
 
     if (algo(graph, &path, curr_node, V))
     {
@@ -93,8 +92,10 @@ bool cycle (TGraph *graph, int V) {
         for (int i = 0; i < V; i++)
             printf("%d-", path.array[i].data);
         printf("%d\n", path.array[0].data);
+        printf("\n");
         return true;
     }
     printf("Result: It is not a Hamilton graph\n");
+    printf("\n");
     return false;
 }
