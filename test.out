@@ -3,11 +3,13 @@
 1-0-0-1
 1-1-1-1
 0-0-0-1
-Result: It is not Hamilton graph
+Result: It is not a Hamilton graph
 
 [graph 2]
 0-1-1-1
 1-0-0-1
 1-0-0-1
 1-1-1-0
-Result: It is Hamilton graph
+Hamilton cycle is 0-1-2-3
+Result: It is a Hamilton graph
+

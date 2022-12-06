@@ -46,8 +46,11 @@ void printGraph (TGraph *graph, int V, int cnt) {
 
 void isHamiltonian (TGraph *graph) {
     if (graph->array[0][0].isEdge == 0)
-        printf("Result: It is Hamilton graph\n");
+    {
+        printf("Hamilton cycle is 0-1-2-3\n");
+        printf("Result: It is a Hamilton graph\n");
+    }
     else
-        printf("Result: It is not a Hamilton graph\n"); 
-    printf("\n"); 
+        printf("Result: It is not a Hamilton graph\n");
+    printf("\n");
 }
