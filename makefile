@@ -9,7 +9,7 @@ all: $(PROJECT)
 
 run: $(PROJECT)
 	@./$(PROJECT) $(FILES) > current-test.output
-	@echo "\nTest output differences:"
+	@echo "Test output differences:"
 	@diff -w $(PROJECT).output current-test.output
 
 $(PROJECT): $(PROJECT).c $(FUNCTIONS).c $(READ).c 

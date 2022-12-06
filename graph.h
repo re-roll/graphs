@@ -15,7 +15,7 @@
 #define STR_MAX 50
 
 typedef struct Edge {
-    bool isEdge;
+    int data;
 } TEdge;
 
 typedef struct Graph {
@@ -23,12 +23,19 @@ typedef struct Graph {
     TEdge **array;
 } TGraph;
 
+typedef struct Path {
+    int V;
+    TEdge *array;
+} TPath;
+
 void handleErrs (int code, char *string);
 void readFile (int argc, char *argv[]);
 
 void initGraph (TGraph *graph, int V);
+void initPath (TPath *graph, int V);
 void insertConn (TGraph *graph, int v, int e);
 void printGraph (TGraph *graph, int V, int cnt);
-void isHamiltonian (TGraph *graph);
+bool algo (TGraph *graph, TPath *path, int curr_node, int V);
+bool cycle (TGraph *graph, int V);
 
 #endif

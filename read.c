@@ -14,7 +14,7 @@ void readFile (int argc, char *argv[]) {
     int i = 1;
     while (i < argc)
     {
-        int V = 4;
+        int V = 0;
         char string[STR_MAX];
 
         int f_i = 0;
@@ -23,6 +23,11 @@ void readFile (int argc, char *argv[]) {
         int cnt = 0;
         
         f = fopen(argv[i], "r");
+
+        while (fgets(string, STR_MAX, f))
+            V++;
+        
+        rewind(f);
         
         TGraph graph;
         initGraph(&graph, V);
@@ -34,7 +39,6 @@ void readFile (int argc, char *argv[]) {
         {
             f_i = cnt;
             int len = strlen(string);
-            V = len/2+1;
 
             for (int e_cnt = 0; e_cnt < len; e_cnt++)
             {
@@ -47,7 +51,7 @@ void readFile (int argc, char *argv[]) {
             cnt++;
         }
         printGraph(&graph, V, i);
-        isHamiltonian(&graph);
+        cycle(&graph, V);
         fclose(f);
         i++;  
     }
