@@ -35,6 +35,16 @@ void initPath (TPath *path, int V) {
         path->array[i].data = 0;
 }
 
+void freeGrap(TGraph *graph, int V){
+    for (int i = 0; i < V; i++)
+        free(graph->array[i]);
+    free(graph->array);
+}
+
+void freePath(TPath *path){
+    free(path->array);
+} 
+
 /*pass index with 1 placing, and writting down in our 0 matrix,
  which  we initializing with procedure of initGraph. In the same index we writting down 1 */
 void insertConn (TGraph *graph, int v, int e) { 
@@ -85,23 +95,24 @@ bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
     return false;
 }
 //function of creating, initializing, cheching & making output out of path
-bool cycle (TGraph *graph, int V) {
-    TPath path;
-    initPath(&path, V);
+bool cycle (TGraph *graph, TPath *path, int V) {
+    initPath(path, V);
 
     int curr_node = 0;
 
-    if (algo(graph, &path, curr_node, V))
+    if (algo(graph, path, curr_node, V))
     {
         printf("Result: It is a Hamilton graph\n");
         printf("Hamilton cycle is ");
         for (int i = 0; i < V; i++)
-            printf("%d-", path.array[i].data);
-        printf("%d\n", path.array[0].data);
+            printf("%d-", (*path).array[i].data);
+        printf("%d\n", (*path).array[0].data);
         printf("\n");
         return true;
     }
     printf("Result: It is not a Hamilton graph\n");
     printf("\n");
+
+ 
     return false;
 }

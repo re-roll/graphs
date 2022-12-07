@@ -34,6 +34,7 @@ void readFile (int argc, char *argv[]) {
         rewind(f); 
         //creating an object type TGraph
         TGraph graph; 
+        TPath path;
         initGraph(&graph, V);
 
         if (f == NULL)
@@ -55,8 +56,11 @@ void readFile (int argc, char *argv[]) {
             cnt++;
         }
         printGraph(&graph, V, i);
-        cycle(&graph, V);
+        cycle(&graph, &path, V);
         fclose(f);
         i++;  
+        freeGrap(&graph, V);
+        freePath(&path);
     }
+    
 }
