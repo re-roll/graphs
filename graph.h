@@ -33,8 +33,8 @@ void readFile (int argc, char *argv[]);
 
 void initGraph (TGraph *graph, int V);
 void initPath (TPath *graph, int V);
-void freeGrap(TGraph *graph, int V);
-void freePath(TPath *path);
+void freeGraph (TGraph *graph, int V);
+void freePath (TPath *path);
 void insertConn (TGraph *graph, int v, int e);
 void printGraph (TGraph *graph, int V, int cnt);
 bool algo (TGraph *graph, TPath *path, int curr_node, int V);

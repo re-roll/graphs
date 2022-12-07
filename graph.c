@@ -35,13 +35,13 @@ void initPath (TPath *path, int V) {
         path->array[i].data = 0;
 }
 
-void freeGrap(TGraph *graph, int V){
+void freeGraph (TGraph *graph, int V){
     for (int i = 0; i < V; i++)
         free(graph->array[i]);
     free(graph->array);
 }
 
-void freePath(TPath *path){
+void freePath (TPath *path){
     free(path->array);
 } 
 

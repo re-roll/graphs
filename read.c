@@ -27,10 +27,10 @@ void readFile (int argc, char *argv[]) {
         int cnt = 0;
         
         f = fopen(argv[i], "r");
-//counting nodes in the graph
+        //counting nodes in the graph
         while (fgets(string, STR_MAX, f)) 
             V++;
-        //comeback to the start of the file
+        //come back to the start of the file
         rewind(f); 
         //creating an object type TGraph
         TGraph graph; 
@@ -59,7 +59,7 @@ void readFile (int argc, char *argv[]) {
         cycle(&graph, &path, V);
         fclose(f);
         i++;  
-        freeGrap(&graph, V);
+        freeGraph(&graph, V);
         freePath(&path);
     }
     
