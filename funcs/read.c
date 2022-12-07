@@ -1,12 +1,15 @@
-#include "graph.h"
+/*
+ * read.c
+ * Téma: Hamiltonova cesta a cyklus v grafu 
+ * Implementace: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich prosinec 2022
+ */
+#include "../lib/graph.h"
 
-
-/*Function check mistackes of the arguments*/
+/*Function checks mistakes at start*/
 void handleErrs (int code, char *string) {
     fprintf(stderr, string);
     exit(code);
 }
-
 
 /*Function reads file. In the input It's reading our files and works with them.*/
 void readFile (int argc, char *argv[]) {
@@ -50,7 +53,7 @@ void readFile (int argc, char *argv[]) {
                 if (((e_cnt % 2) == 0) && ((string[e_cnt] - 48) == 1))
                 {
                     s_i = e_cnt/2;
-                    insertConn(&graph, f_i, s_i); //pass index with 1 
+                    insertConn(&graph, f_i, s_i);
                 }
             }
             cnt++;
@@ -58,9 +61,10 @@ void readFile (int argc, char *argv[]) {
         printGraph(&graph, V, i);
         cycle(&graph, &path, V);
         fclose(f);
-        i++;  
+        
         freeGraph(&graph, V);
         freePath(&path);
+        i++;  
     }
     
 }

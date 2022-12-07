@@ -1,10 +1,9 @@
 /*
  * graph.c
  * Téma: Hamiltonova cesta a cyklus v grafu 
- * Implementace: Oleksii Fedorchenko, Dmitrii Ivanuhskin, Zlata Valakhanovich prosinec 2022
+ * Implementace: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich prosinec 2022
  */
-#include "graph.h"
-
+#include "../lib/graph.h"
 
 /*Function writting down our counts of nodes in the structure. 
 Allocate the right amount of memory for two dimensional arrays. 
@@ -24,6 +23,7 @@ void initGraph (TGraph *graph, int V) {
             graph->array[i][j].data = 0;
     }
 }
+
 //function of initializing paths
 void initPath (TPath *path, int V) {
     path->V = V;
@@ -50,6 +50,7 @@ void freePath (TPath *path){
 void insertConn (TGraph *graph, int v, int e) { 
     graph->array[v][e].data = 1; 
 }
+
 /*Fuction of printing graph with correct way.*/
 void printGraph (TGraph *graph, int V, int cnt) {
     printf("[graph %d]\n", cnt);
@@ -65,6 +66,7 @@ void printGraph (TGraph *graph, int V, int cnt) {
         printf("\n");
     }
 }
+
 //algoritm of Hamiltonian graph search
 bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
     if (curr_node + 1 == V) 
@@ -94,6 +96,7 @@ bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
     
     return false;
 }
+
 //function of creating, initializing, cheching & making output out of path
 bool cycle (TGraph *graph, TPath *path, int V) {
     initPath(path, V);
@@ -112,7 +115,6 @@ bool cycle (TGraph *graph, TPath *path, int V) {
     }
     printf("Result: It is not a Hamilton graph\n");
     printf("\n");
-
  
     return false;
 }
