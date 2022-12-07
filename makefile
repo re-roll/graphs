@@ -3,7 +3,7 @@ CC=gcc
 CFLAGS=-std=c99 -Wall -Wextra -pedantic -lm -fcommon
 FUNCTIONS=graph
 READ=read
-FILES=graphs/1.txt graphs/2.txt graphs/3.txt
+FILES=graphs/hamGraph.txt graphs/hamGraphSimple1.txt graphs/hamGraphSimple2.txt graphs/hamGraphSimple3.txt graphs/nonHamGraph.txt graphs/nonHamGraphSimple1.txt graphs/nonHamGraphSimple2.txt graphs/nonHamGraphSimple3.txt
 
 all: $(PROJECT)
 

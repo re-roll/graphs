@@ -5,6 +5,10 @@
  */
 #include "graph.h"
 
+
+/*Function writting down our counts of nodes in the structure. 
+Allocate the right amount of memory for two dimensional arrays. 
+Filling the array with zeros. */
 void initGraph (TGraph *graph, int V) {
     graph->V = V;
     graph->array = (TEdge**)malloc(V * sizeof(TEdge*));
@@ -20,7 +24,7 @@ void initGraph (TGraph *graph, int V) {
             graph->array[i][j].data = 0;
     }
 }
-
+//function of initializing paths
 void initPath (TPath *path, int V) {
     path->V = V;
     path->array = (TEdge*)malloc(V * sizeof(TEdge));
@@ -31,10 +35,12 @@ void initPath (TPath *path, int V) {
         path->array[i].data = 0;
 }
 
-void insertConn (TGraph *graph, int v, int e) {
-    graph->array[v][e].data = 1;
+/*pass index with 1 placing, and writting down in our 0 matrix,
+ which  we initializing with procedure of initGraph. In the same index we writting down 1 */
+void insertConn (TGraph *graph, int v, int e) { 
+    graph->array[v][e].data = 1; 
 }
-
+/*Fuction of printing graph with correct way.*/
 void printGraph (TGraph *graph, int V, int cnt) {
     printf("[graph %d]\n", cnt);
     for (int i = 0; i < V; i++)
@@ -49,7 +55,7 @@ void printGraph (TGraph *graph, int V, int cnt) {
         printf("\n");
     }
 }
-
+//algoritm of Hamiltonian graph search
 bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
     if (curr_node + 1 == V) 
     {
@@ -58,7 +64,7 @@ bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
         else
             return false;
     }
-
+    
     for (int i = 1; i < V; i++)
     {
         if ((graph->array[path->array[curr_node].data][i].data) == 1)
@@ -78,7 +84,7 @@ bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
     
     return false;
 }
-
+//function of creating, initializing, cheching & making output out of path
 bool cycle (TGraph *graph, int V) {
     TPath path;
     initPath(&path, V);

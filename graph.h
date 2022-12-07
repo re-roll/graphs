@@ -19,8 +19,8 @@ typedef struct Edge {
 } TEdge;
 
 typedef struct Graph {
-    int V;
-    TEdge **array;
+    int V;      /*contains all nodes */
+    TEdge **array; /*contains two dimensional arrays which interpretating the whole matrix*/
 } TGraph;
 
 typedef struct Path {
