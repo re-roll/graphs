@@ -1,7 +1,7 @@
 /*
  * main.c
- * Téma: Hamiltonova cesta a cyklus v grafu 
- * Implementace: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich prosinec 2022
+ * Theme: Hamiltonian path and cycle in graph 
+ * Implementation: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich, December 2022
  */
 #include "lib/graph.h"
 

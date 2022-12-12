@@ -1,13 +1,12 @@
 /*
  * graph.c
- * Téma: Hamiltonova cesta a cyklus v grafu 
- * Implementace: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich prosinec 2022
+ * Work with graph
+ * Theme: Hamiltonian path and cycle in graph 
+ * Implementation: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich, December 2022
  */
 #include "../lib/graph.h"
 
-/*Function writting down our counts of nodes in the structure. 
-Allocate the right amount of memory for two dimensional arrays. 
-Filling the array with zeros. */
+// Init Graph and allocate memory
 void initGraph (TGraph *graph, int V) {
     graph->V = V;
     graph->array = (TEdge**)malloc(V * sizeof(TEdge*));
@@ -24,7 +23,7 @@ void initGraph (TGraph *graph, int V) {
     }
 }
 
-//function of initializing paths
+// Init path and allocate memory
 void initPath (TPath *path, int V) {
     path->V = V;
     path->array = (TEdge*)malloc(V * sizeof(TEdge));
@@ -35,23 +34,24 @@ void initPath (TPath *path, int V) {
         path->array[i].data = 0;
 }
 
+// Free allocated memory
 void freeGraph (TGraph *graph, int V){
     for (int i = 0; i < V; i++)
         free(graph->array[i]);
     free(graph->array);
 }
 
+// Free allocated memory
 void freePath (TPath *path){
     free(path->array);
 } 
 
-/*pass index with 1 placing, and writting down in our 0 matrix,
- which  we initializing with procedure of initGraph. In the same index we writting down 1 */
+// Insert edges between vertices
 void insertConn (TGraph *graph, int v, int e) { 
     graph->array[v][e].data = 1; 
 }
 
-/*Fuction of printing graph with correct way.*/
+// Print to stdout the matrix representing graph
 void printGraph (TGraph *graph, int V, int cnt) {
     printf("[graph %d]\n", cnt);
     for (int i = 0; i < V; i++)
@@ -67,7 +67,7 @@ void printGraph (TGraph *graph, int V, int cnt) {
     }
 }
 
-//algoritm of Hamiltonian graph search
+// The backtracking algorithm for searching a Hamiltonian path
 bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
     if (curr_node + 1 == V) 
     {
@@ -97,7 +97,7 @@ bool algo (TGraph *graph, TPath *path, int curr_node, int V) {
     return false;
 }
 
-//function of creating, initializing, cheching & making output out of path
+// Print result of search with (not)found path
 bool cycle (TGraph *graph, TPath *path, int V) {
     initPath(path, V);
 

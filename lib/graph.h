@@ -1,9 +1,9 @@
 /*
- * Předmět: Algoritmy (IAL) - FIT VUT v Brně
- * Hlavičkový soubor pro graph.c
- * Vytvořili: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich, prosinec 2022
+ * graph.h
+ * Header file
+ * Theme: Hamiltonian path and cycle in graph 
+ * Implementation: Oleksii Fedorchenko, Dmitrii Ivanushkin, Zlata Valakhanovich, December 2022
  */
-
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -15,12 +15,12 @@
 #define STR_MAX 50
 
 typedef struct Edge {
-    int data;
+    int data;           // 1 or 0 (edges existence) if points from TGraph; vertex if TPath
 } TEdge;
 
 typedef struct Graph {
-    int V;      /*contains all nodes */
-    TEdge **array; /*contains two dimensional arrays which interpretating the whole matrix*/
+    int V;              // Vertices count
+    TEdge **array;      // Matrix representing graph
 } TGraph;
 
 typedef struct Path {
